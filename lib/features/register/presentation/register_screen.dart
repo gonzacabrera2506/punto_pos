@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:stock_ventas/shared/infrastructure/services/camera_gallery_service_impl.dart';
+import 'package:stock_ventas/shared/widgets/custom_button_camera.dart';
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
@@ -41,22 +42,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Form(
               child: Column(
                 children: [
-                  CustomCircleAvatar(
-                    onTap: () async {
-                      final photoPath =
-                          await CameraGalleryServiceImpl().selectPhoto();
-                      if (photoPath != null) {
-                        setState(() {
-                          _image = File(photoPath);
-                        });
-                      }
-                    },
-                    backgroundImage: _image != null ? FileImage(_image!) : null,
-                    icon: Icon(
-                      Icons.person,
-                      size: 50.0,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                  Stack(
+                    alignment: AlignmentDirectional.bottomEnd,
+                    children: [
+                      CustomCircleAvatar(
+                        onTap: () async {
+                          final photoPath =
+                              await CameraGalleryServiceImpl().selectPhoto();
+                          if (photoPath != null) {
+                            setState(() {
+                              _image = File(photoPath);
+                            });
+                          }
+                        },
+                        backgroundImage:
+                            _image != null ? FileImage(_image!) : null,
+                        icon: Icon(
+                          Icons.person,
+                          size: 45.0,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          final photoPath =
+                              await CameraGalleryServiceImpl().selectPhoto();
+                          if (photoPath != null) {
+                            setState(() {
+                              _image = File(photoPath);
+                            });
+                          }
+                        },
+                        child: Icon(
+                          Icons.camera_alt_rounded,
+                          size: 28.0,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 20),
                   CustomTextFormField(
