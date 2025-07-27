@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_validator/form_validator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stock_ventas/features/register/presentation/register_screen.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
@@ -6,10 +7,18 @@ import 'package:stock_ventas/shared/widgets/custom_outlined_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
 import 'package:stock_ventas/shared/widgets/custom_textFormField.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const String routeName = '/welcome_screen';
 
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   //
   @override
   Widget build(BuildContext context) {
@@ -21,14 +30,23 @@ class LoginScreen extends StatelessWidget {
           children: [
             CustomTextFormField(
               obscureText: false,
+              controller: _email,
+              validation: ValidationBuilder().email().required().build(),
               labelText: "Email",
               prefixIcon: Icon(Icons.email_outlined),
             ),
             SizedBox(height: 20),
             CustomTextFormField(
+              obscureText: true,
+              controller: _password,
+              validation:
+                  ValidationBuilder()
+                      .minLength(6)
+                      .maxLength(8)
+                      .required()
+                      .build(),
               labelText: "Password",
               prefixIcon: Icon(Icons.lock_outline_rounded),
-              obscureText: true,
             ),
             SizedBox(height: 30),
             CustomElevatedButton(

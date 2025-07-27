@@ -1,8 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:stock_ventas/shared/infrastructure/services/camera_gallery_service_impl.dart';
-import 'package:stock_ventas/shared/widgets/custom_button_camera.dart';
+import 'package:form_validator/form_validator.dart';
+import 'package:stock_ventas/constants/validation.message.dart';
+import 'package:stock_ventas/shared/infrastructure/services/camera_gallery/camera_gallery_service_impl.dart';
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
@@ -17,13 +17,20 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _nombre = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _confirmaEmail = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   File? _image;
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       toolbarHeight: 10,
       children: [
-        Image.asset('assets/PuntoPOS.png', scale: 6.0),
+        Image.asset('assets/PuntoPOS.png', scale: 8.0),
         Text(
           "¡Bienvenido a PuntoPOS!",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -32,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Text(
           textAlign: TextAlign.center,
           "Para poder comenzar a usar PuntoPOS, necesitamos conocerte. Completa el siguiente formulario para crear tu cuenta.",
-          style: TextStyle(fontSize: 14),
+          style: TextStyle(fontSize: 13),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,6 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             SizedBox(height: 20),
             Form(
+              key: _formKey,
               child: Column(
                 children: [
                   Stack(
@@ -66,7 +74,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       GestureDetector(
                         onTap: () async {
                           final photoPath =
-                              await CameraGalleryServiceImpl().selectPhoto();
+                              await CameraGalleryServiceImpl().takePhoto();
                           if (photoPath != null) {
                             setState(() {
                               _image = File(photoPath);
@@ -83,27 +91,52 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   SizedBox(height: 20),
                   CustomTextFormField(
+                    obscureText: false,
+                    controller: _nombre,
+                    validation:
+                        ValidationBuilder()
+                            .maxLength(30, maximo30)
+                            .required(faltaCampo)
+                            .build(),
                     labelText: "Nombre/negocio",
                     prefixIcon: Icon(Icons.person_outline_rounded),
-                    obscureText: false,
                   ),
                   SizedBox(height: 20),
                   CustomTextFormField(
+                    obscureText: false,
+                    controller: _email,
+                    validation:
+                        ValidationBuilder()
+                            .email(email)
+                            .required(faltaCampo)
+                            .build(),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.email_outlined),
-                    obscureText: false,
                   ),
                   SizedBox(height: 20),
                   CustomTextFormField(
+                    obscureText: false,
+                    controller: _confirmaEmail,
+                    validation:
+                        ValidationBuilder()
+                            .email(email)
+                            .required(faltaCampo)
+                            .build(),
                     labelText: "Confirmar email",
                     prefixIcon: Icon(Icons.email_rounded),
-                    obscureText: false,
                   ),
                   SizedBox(height: 20),
                   CustomTextFormField(
+                    obscureText: true,
+                    controller: _password,
+                    validation:
+                        ValidationBuilder()
+                            .required(faltaCampo)
+                            .minLength(6, minimo)
+                            .maxLength(8, maximo)
+                            .build(),
                     labelText: "Password",
                     prefixIcon: Icon(Icons.lock_outline_rounded),
-                    obscureText: true,
                   ),
                   SizedBox(height: 30),
                   CustomElevatedButton(
@@ -113,6 +146,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     onPressed: () {
                       //TODO: // REGISTRO EN BD
+                      //if (_formKey.currentState!.validate()) {
+                      print(_formKey.currentState!.validate());
+                      // }
                     },
                   ),
                 ],
