@@ -25,9 +25,14 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: obscureText,
         controller: controller,
         validator: validation,
+        cursorHeight: 11,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(0, 7, 0, 0),
+          labelStyle: TextStyle(fontSize: 20),
           labelText: labelText,
           prefixIcon: prefixIcon,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          errorStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           border: UnderlineInputBorder(
             borderSide: BorderSide(
               color: Theme.of(context).colorScheme.primary,

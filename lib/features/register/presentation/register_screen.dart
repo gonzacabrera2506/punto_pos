@@ -6,6 +6,7 @@ import 'package:stock_ventas/shared/infrastructure/services/camera_gallery/camer
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
+import 'package:stock_ventas/shared/widgets/custom_show_dialog.dart';
 import 'package:stock_ventas/shared/widgets/custom_textFormField.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -94,10 +95,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: false,
                     controller: _nombre,
                     validation:
-                        ValidationBuilder()
-                            .maxLength(30, maximo30)
-                            .required(faltaCampo)
-                            .build(),
+                        ValidationBuilder(
+                          localeName: 'es',
+                        ).maxLength(30).required().build(),
                     labelText: "Nombre/negocio",
                     prefixIcon: Icon(Icons.person_outline_rounded),
                   ),
@@ -106,10 +106,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: false,
                     controller: _email,
                     validation:
-                        ValidationBuilder()
-                            .email(email)
-                            .required(faltaCampo)
-                            .build(),
+                        ValidationBuilder(
+                          localeName: 'es',
+                        ).email().required().build(),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.email_outlined),
                   ),
@@ -118,10 +117,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: false,
                     controller: _confirmaEmail,
                     validation:
-                        ValidationBuilder()
-                            .email(email)
-                            .required(faltaCampo)
-                            .build(),
+                        ValidationBuilder(
+                          localeName: 'es',
+                        ).email().required().build(),
                     labelText: "Confirmar email",
                     prefixIcon: Icon(Icons.email_rounded),
                   ),
@@ -130,11 +128,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: true,
                     controller: _password,
                     validation:
-                        ValidationBuilder()
-                            .required(faltaCampo)
-                            .minLength(6, minimo)
-                            .maxLength(8, maximo)
-                            .build(),
+                        ValidationBuilder(
+                          localeName: 'es',
+                        ).required().minLength(6).maxLength(8).build(),
                     labelText: "Password",
                     prefixIcon: Icon(Icons.lock_outline_rounded),
                   ),
@@ -145,10 +141,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      //TODO: // REGISTRO EN BD
-                      //if (_formKey.currentState!.validate()) {
-                      print(_formKey.currentState!.validate());
-                      // }
+                      //TODO: // REGISTRO EN BD Y VERIFICACION DE EMAIL EXISTENTE
+                      if (_formKey.currentState!.validate()) {
+                        if (_email.text == _confirmaEmail.text) {
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (_) => CustomShowDialog(),
+                          );
+                        }
+                      }
                     },
                   ),
                 ],
