@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "326765388647",
-    "project_id": "puntopos-2088d",
-    "storage_bucket": "puntopos-2088d.firebasestorage.app"
+    "project_number": "829591693767",
+    "project_id": "puntopos-c8051",
+    "storage_bucket": "puntopos-c8051.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:326765388647:android:41a1906235fc99291745c2",
+        "mobilesdk_app_id": "1:829591693767:android:2c0a9e686bf82dfa6611e2",
         "android_client_info": {
           "package_name": "com.example.stock_ventas"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAts-wXlsHS-S8OlMiOKLL3rnICVPjy0ho"
+          "current_key": "AIzaSyBneTnVKrMn3piGvDrvolf-4gFP8EWSvXQ"
         }
       ],
       "services": {

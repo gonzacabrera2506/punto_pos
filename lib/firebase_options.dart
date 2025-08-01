@@ -41,46 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA6I6jkGYNhOWOD0hpkSfXLFqXMfXlDzGg',
-    appId: '1:326765388647:web:2db250c129518ffd1745c2',
-    messagingSenderId: '326765388647',
-    projectId: 'puntopos-2088d',
-    authDomain: 'puntopos-2088d.firebaseapp.com',
-    storageBucket: 'puntopos-2088d.firebasestorage.app',
+    apiKey: 'AIzaSyD7BxyYTxAfQH9hJtvp3r3-ZKUAxpCc5iM',
+    appId: '1:829591693767:web:ce3037951fe504ca6611e2',
+    messagingSenderId: '829591693767',
+    projectId: 'puntopos-c8051',
+    authDomain: 'puntopos-c8051.firebaseapp.com',
+    storageBucket: 'puntopos-c8051.firebasestorage.app',
+    measurementId: 'G-QG9ZZ2E1CK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAts-wXlsHS-S8OlMiOKLL3rnICVPjy0ho',
-    appId: '1:326765388647:android:41a1906235fc99291745c2',
-    messagingSenderId: '326765388647',
-    projectId: 'puntopos-2088d',
-    storageBucket: 'puntopos-2088d.firebasestorage.app',
+    apiKey: 'AIzaSyBneTnVKrMn3piGvDrvolf-4gFP8EWSvXQ',
+    appId: '1:829591693767:android:2c0a9e686bf82dfa6611e2',
+    messagingSenderId: '829591693767',
+    projectId: 'puntopos-c8051',
+    storageBucket: 'puntopos-c8051.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCJs21jEnaplVNCzXITqzkhiX2S5cb3WUE',
-    appId: '1:326765388647:ios:f122c61396d682281745c2',
-    messagingSenderId: '326765388647',
-    projectId: 'puntopos-2088d',
-    storageBucket: 'puntopos-2088d.firebasestorage.app',
+    apiKey: 'AIzaSyBjK4LG5pZhJJCHt7m6vDmTJSjuo6gHOD8',
+    appId: '1:829591693767:ios:9f5fa9831f3248626611e2',
+    messagingSenderId: '829591693767',
+    projectId: 'puntopos-c8051',
+    storageBucket: 'puntopos-c8051.firebasestorage.app',
     iosBundleId: 'com.example.stockVentas',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCJs21jEnaplVNCzXITqzkhiX2S5cb3WUE',
-    appId: '1:326765388647:ios:f122c61396d682281745c2',
-    messagingSenderId: '326765388647',
-    projectId: 'puntopos-2088d',
-    storageBucket: 'puntopos-2088d.firebasestorage.app',
+    apiKey: 'AIzaSyBjK4LG5pZhJJCHt7m6vDmTJSjuo6gHOD8',
+    appId: '1:829591693767:ios:9f5fa9831f3248626611e2',
+    messagingSenderId: '829591693767',
+    projectId: 'puntopos-c8051',
+    storageBucket: 'puntopos-c8051.firebasestorage.app',
     iosBundleId: 'com.example.stockVentas',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyA6I6jkGYNhOWOD0hpkSfXLFqXMfXlDzGg',
-    appId: '1:326765388647:web:2eecc58acbb95c0d1745c2',
-    messagingSenderId: '326765388647',
-    projectId: 'puntopos-2088d',
-    authDomain: 'puntopos-2088d.firebaseapp.com',
-    storageBucket: 'puntopos-2088d.firebasestorage.app',
+    apiKey: 'AIzaSyD7BxyYTxAfQH9hJtvp3r3-ZKUAxpCc5iM',
+    appId: '1:829591693767:web:5421c61e6b4865506611e2',
+    messagingSenderId: '829591693767',
+    projectId: 'puntopos-c8051',
+    authDomain: 'puntopos-c8051.firebaseapp.com',
+    storageBucket: 'puntopos-c8051.firebasestorage.app',
+    measurementId: 'G-ZEF5YHMVBE',
   );
 }
