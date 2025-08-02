@@ -1,15 +1,15 @@
 class User {
-  final String? id;
+  final String id;
   final String? name;
   final String email;
-  final String password;
+  final String? password;
   // final String token;
 
   User({
-    this.id,
+    required this.id,
     this.name,
     required this.email,
-    required this.password,
+    this.password,
     //required this.token,
   });
 }
