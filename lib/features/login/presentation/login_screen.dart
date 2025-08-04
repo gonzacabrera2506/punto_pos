@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:go_router/go_router.dart';
-import 'package:stock_ventas/features/register/presentation/register_screen.dart';
+import 'package:stock_ventas/features/register/presentation/screens/register_screen.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_outlined_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';

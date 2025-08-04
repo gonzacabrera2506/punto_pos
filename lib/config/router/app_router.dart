@@ -1,7 +1,10 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stock_ventas/features/home/presentation/home_screen.dart';
 import 'package:stock_ventas/features/login/presentation/login_screen.dart';
-import 'package:stock_ventas/features/register/presentation/register_screen.dart';
+import 'package:stock_ventas/features/register/infrastructure/services/firebase_signup/register_firebase.dart';
+import 'package:stock_ventas/features/register/presentation/bloc/register_bloc.dart';
+import 'package:stock_ventas/features/register/presentation/screens/register_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -19,7 +22,12 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/register_screen',
       name: RegisterScreen.routeName,
-      builder: (context, state) => const RegisterScreen(),
+      builder: (context, state) {
+        return BlocProvider<RegisterBloc>(
+          create: (context) => RegisterBloc(RegisterFirebase()),
+          child: const RegisterScreen(),
+        );
+      },
     ),
   ],
 );

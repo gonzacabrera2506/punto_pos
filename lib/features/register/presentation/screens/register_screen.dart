@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:stock_ventas/constants/validation.message.dart';
 import 'package:stock_ventas/shared/infrastructure/services/camera_gallery/camera_gallery_service_impl.dart';
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
