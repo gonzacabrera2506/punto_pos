@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class User {
-  final String id;
+  final String? id;
   final String? name;
   final String email;
   final String? password;
@@ -9,7 +9,7 @@ class User {
   // final String token;
 
   User({
-    required this.id,
+    this.id,
     this.name,
     required this.email,
     this.password,

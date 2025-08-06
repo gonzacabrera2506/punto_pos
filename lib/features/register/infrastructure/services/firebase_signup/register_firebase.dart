@@ -33,7 +33,12 @@ class RegisterFirebase implements RegisterFirebaseRepository {
         'image': imageFile,
       });
 
-      return user.User(id: uid, name: name, email: email, imageFile: imageFile);
+      return user.User(
+        name: name,
+        email: email,
+        password: password,
+        imageFile: imageFile,
+      );
     } on FirebaseAuthException catch (e) {
       // Manejar errores específicos de Firebase Auth
       throw Exception('Error de autenticación: ${e.message}');

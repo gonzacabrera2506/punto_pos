@@ -19,7 +19,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   ) async {
     emit(state.copyWith(isChecking: true, isFailure: false));
     try {
-      await _registerFirebase.register(event.id, event.name, event.email);
+      await _registerFirebase.register(event.name, event.email, event.password);
       emit(
         state.copyWith(isChecking: false, isFailure: false, isSuccess: true),
       );

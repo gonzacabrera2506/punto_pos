@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomShowDialog extends StatelessWidget {
-  const CustomShowDialog({super.key});
+  final String textTitle;
+  final String textContent;
+  const CustomShowDialog({
+    super.key,
+    required this.textTitle,
+    required this.textContent,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +16,8 @@ class CustomShowDialog extends StatelessWidget {
 
   Widget _alertDialog(BuildContext context) {
     return AlertDialog(
-      title: const Text('Atención!'),
-      content: const Text('El Email y la confirmación deben coincidir.'),
+      title: Text(textTitle),
+      content: Text(textContent),
       actions: <Widget>[
         TextButton(
           onPressed: () {
