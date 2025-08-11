@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:stock_ventas/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:stock_ventas/features/home/presentation/home_screen.dart';
 import 'package:stock_ventas/features/login/presentation/login_screen.dart';
 import 'package:stock_ventas/features/register/infrastructure/services/firebase_signup/register_firebase.dart';
@@ -10,7 +11,7 @@ final appRouter = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(
-      path: '/',
+      path: '/home',
       name: HomeScreen.routeName,
       builder: (context, state) => const HomeScreen(),
     ),
@@ -28,6 +29,11 @@ final appRouter = GoRouter(
           child: const RegisterScreen(),
         );
       },
+    ),
+    GoRoute(
+      path: '/',
+      name: DashboardScreen.routeName,
+      builder: (context, state) => const DashboardScreen(),
     ),
   ],
 );

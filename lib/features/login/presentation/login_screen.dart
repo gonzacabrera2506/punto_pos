@@ -23,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       toolbarHeight: 10,
       children: [
         Image.asset('assets/PuntoPOS.png', scale: 3.0),

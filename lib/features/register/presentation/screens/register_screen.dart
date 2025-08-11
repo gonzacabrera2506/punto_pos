@@ -53,6 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       builder: (context, state) {
         return CustomScaffold(
           toolbarHeight: 10,
+          backgroundColor: Theme.of(context).primaryColor,
           children: [
             Image.asset('assets/PuntoPOS.png', scale: 8.0),
             Text(

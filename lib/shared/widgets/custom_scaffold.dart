@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomScaffold extends StatelessWidget {
   final double toolbarHeight;
+  final Color? backgroundColor;
+  final Widget? title;
+  final Widget? leading;
   List<Widget> children = [];
+  List<Widget>? avatar;
   CustomScaffold({
     super.key,
     required this.toolbarHeight,
     required this.children,
+    this.title,
+    this.backgroundColor,
+    this.leading,
+    this.avatar,
   });
 
   @override
@@ -14,8 +23,12 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        centerTitle: true,
+        actions: avatar,
+        backgroundColor: backgroundColor,
+        leading: leading,
         toolbarHeight: toolbarHeight,
+        title: title,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
