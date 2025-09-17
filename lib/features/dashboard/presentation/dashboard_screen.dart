@@ -18,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       leading: Icon(Icons.menu),
       avatar: [
         CustomCircleAvatar(
@@ -33,7 +33,78 @@ class _DashboardScreenState extends State<DashboardScreen> {
       title: Image.asset('assets/PuntoPOS_letras.png', scale: 1.5),
       toolbarHeight: 70,
       children: [
-        Row(children: [CustomCard(), CustomCard()]),
+        Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Column(
+            children: [
+              Row(children: [SizedBox(height: 15)]),
+              Row(
+                children: [
+                  CustomCard(
+                    icon: Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 85.0,
+                    ),
+                    text: Text(
+                      "Vender",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  CustomCard(
+                    icon: Icon(
+                      Icons.storefront_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 85.0,
+                    ),
+                    text: Text(
+                      "Comprar",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  CustomCard(
+                    icon: Icon(
+                      Icons.storage_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 85.0,
+                    ),
+                    text: Text(
+                      "Stock",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  CustomCard(
+                    icon: Icon(
+                      Icons.analytics_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 85.0,
+                    ),
+                    text: Text(
+                      "Reportes",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
