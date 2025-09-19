@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:stock_ventas/shared/widgets/custom_card.dart';
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
+import 'package:stock_ventas/shared/widgets/custom_dashboard_head.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -31,13 +32,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       ],
       title: Image.asset('assets/PuntoPOS_letras.png', scale: 1.5),
-      toolbarHeight: 70,
+      toolbarHeight: 60,
       children: [
         Padding(
           padding: const EdgeInsets.all(0.0),
           child: Column(
             children: [
-              Row(children: [SizedBox(height: 15)]),
+              CustomDashboardHead(),
+              Row(children: [SizedBox(height: 10)]),
               Row(
                 children: [
                   CustomCard(
@@ -70,6 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: 8),
               Row(
                 children: [
                   CustomCard(
