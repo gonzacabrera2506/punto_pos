@@ -8,6 +8,7 @@ class CustomScaffold extends StatelessWidget {
   final Widget? leading;
   List<Widget> children = [];
   List<Widget>? avatar;
+  final Widget? bottomNavigationBar;
   CustomScaffold({
     super.key,
     required this.toolbarHeight,
@@ -16,6 +17,7 @@ class CustomScaffold extends StatelessWidget {
     this.backgroundColor,
     this.leading,
     this.avatar,
+    this.bottomNavigationBar,
   });
 
   @override
@@ -45,6 +47,7 @@ class CustomScaffold extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

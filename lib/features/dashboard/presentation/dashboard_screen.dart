@@ -5,6 +5,7 @@ import 'package:stock_ventas/shared/widgets/custom_card.dart';
 import 'package:stock_ventas/shared/widgets/custom_circle_avatar.dart';
 import 'package:stock_ventas/shared/widgets/custom_dashboard_head.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
+import 'package:stock_ventas/shared/widgets/custon_bottom_navigation_bar.dart';
 
 class DashboardScreen extends StatefulWidget {
   static const String routeName = '/dashboard_screen';
@@ -31,6 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ],
+      bottomNavigationBar: CustomBottomNavigationBar(),
       title: Image.asset('assets/PuntoPOS_letras.png', scale: 1.5),
       toolbarHeight: 60,
       children: [
