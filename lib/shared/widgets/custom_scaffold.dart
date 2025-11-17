@@ -6,6 +6,7 @@ class CustomScaffold extends StatelessWidget {
   final Color? backgroundColor;
   final Widget? title;
   final Widget? leading;
+  final Widget? drawer;
   List<Widget> children = [];
   List<Widget>? avatar;
   final Widget? bottomNavigationBar;
@@ -18,12 +19,14 @@ class CustomScaffold extends StatelessWidget {
     this.leading,
     this.avatar,
     this.bottomNavigationBar,
+    this.drawer,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: drawer,
       appBar: AppBar(
         centerTitle: true,
         actions: avatar,
@@ -34,7 +37,7 @@ class CustomScaffold extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05,
+          //horizontal: MediaQuery.of(context).size.width * 0.05,
         ),
         child: Center(
           child: Column(

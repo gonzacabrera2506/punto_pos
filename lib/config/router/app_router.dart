@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:stock_ventas/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:stock_ventas/features/home/presentation/home_screen.dart';
 import 'package:stock_ventas/features/login/presentation/login_screen.dart';
+import 'package:stock_ventas/features/products/presentation/products_screen.dart';
 import 'package:stock_ventas/features/register/infrastructure/services/firebase_signup/register_firebase.dart';
 import 'package:stock_ventas/features/register/presentation/bloc/register_bloc.dart';
 import 'package:stock_ventas/features/register/presentation/screens/register_screen.dart';
@@ -17,6 +18,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/welcome_screen',
+      // path: '/',
       name: LoginScreen.routeName,
       builder: (context, state) => const LoginScreen(),
     ),
@@ -34,6 +36,11 @@ final appRouter = GoRouter(
       path: '/',
       name: DashboardScreen.routeName,
       builder: (context, state) => const DashboardScreen(),
+    ),
+    GoRoute(
+      path: '/new_product',
+      name: ProductsScreen.routeName,
+      builder: (context, state) => const ProductsScreen(),
     ),
   ],
 );

@@ -60,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               "¡Bienvenido a PuntoPOS!",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 2),
             Text(
               textAlign: TextAlign.center,
               "Para poder comenzar a usar PuntoPOS, necesitamos conocerte. Completa el siguiente formulario para crear tu cuenta.",
@@ -70,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -115,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 1),
                       CustomTextFormField(
                         obscureText: false,
                         controller: _nombre,
@@ -126,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         labelText: "Nombre/negocio",
                         prefixIcon: Icon(Icons.person_outline_rounded),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 1),
                       CustomTextFormField(
                         obscureText: false,
                         controller: _email,
@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         labelText: "Email",
                         prefixIcon: Icon(Icons.email_outlined),
                       ),
-                      SizedBox(height: 20),
+                      //SizedBox(height: 1),
                       CustomTextFormField(
                         obscureText: false,
                         controller: _confirmaEmail,
@@ -148,7 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         labelText: "Confirmar email",
                         prefixIcon: Icon(Icons.email_rounded),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 1),
                       CustomTextFormField(
                         obscureText: true,
                         controller: _password,
@@ -159,7 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         labelText: "Password",
                         prefixIcon: Icon(Icons.lock_outline_rounded),
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 15),
                       CustomElevatedButton(
                         child: Text(
                           "REGISTRAR",

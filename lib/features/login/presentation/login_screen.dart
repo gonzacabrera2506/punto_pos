@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
               labelText: "Email",
               prefixIcon: Icon(Icons.email_outlined),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 2),
             CustomTextFormField(
               obscureText: true,
               controller: _password,

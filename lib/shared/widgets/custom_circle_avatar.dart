@@ -21,7 +21,7 @@ class _CustomCircleAvatarState extends State<CustomCircleAvatar> {
     return GestureDetector(
       onTap: widget.onTap,
       child: CircleAvatar(
-        radius: 60.0,
+        radius: 45.0,
         backgroundImage: widget.backgroundImage,
         child: widget.backgroundImage == null ? widget.icon : null,
       ),
