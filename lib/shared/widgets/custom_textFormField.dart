@@ -7,6 +7,8 @@ class CustomTextFormField extends StatelessWidget {
   final String? labelText;
   final Icon? prefixIcon;
   final Widget? suffixIcon;
+  final int? maxLines;
+  final int? maxLength;
 
   const CustomTextFormField({
     super.key,
@@ -16,6 +18,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     this.validation,
     this.suffixIcon,
+    this.maxLines,
+    this.maxLength,
   });
 
   @override
@@ -31,12 +35,23 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: obscureText,
         controller: controller,
         validator: validation,
-        cursorHeight: 11,
+        maxLines: maxLines,
+        maxLength: maxLength,
+        cursorHeight: 24,
         decoration: InputDecoration(
+          counterText: '',
           contentPadding: EdgeInsets.fromLTRB(0, 7, 0, 0),
-          labelStyle: TextStyle(fontSize: 20),
+          labelStyle: TextStyle(fontSize: 22),
           labelText: labelText,
-          prefixIcon: prefixIcon,
+          prefixIcon:
+              prefixIcon != null
+                  ? IconTheme(
+                    data: IconThemeData(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: prefixIcon!,
+                  )
+                  : null,
           suffixIcon: suffixIcon,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           errorStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),

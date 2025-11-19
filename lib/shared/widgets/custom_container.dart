@@ -8,7 +8,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
-      elevation: 2.5,
+      elevation: 3.5,
       shadowColor: Colors.black,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
