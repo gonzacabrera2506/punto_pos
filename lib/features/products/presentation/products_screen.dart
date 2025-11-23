@@ -3,6 +3,7 @@ import 'package:form_validator/form_validator.dart';
 import 'package:stock_ventas/shared/widgets/custom_container.dart';
 import 'package:stock_ventas/shared/widgets/custom_drawer.dart';
 import 'package:stock_ventas/shared/widgets/custom_dropdown.dart';
+import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_scaffold.dart';
 import 'package:stock_ventas/shared/widgets/custom_textFormField.dart';
 
@@ -15,7 +16,12 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-  final TextEditingController _email = TextEditingController();
+  final TextEditingController _codigo = TextEditingController();
+  final TextEditingController _nombre = TextEditingController();
+  final TextEditingController _categoria = TextEditingController();
+  final TextEditingController _stock = TextEditingController();
+  final TextEditingController _precio = TextEditingController();
+  final TextEditingController _descripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -62,10 +68,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               CustomContainer(
                 widgets: [
                   SizedBox(height: 10),
-                  //Row(children: [Text("Datos generales")]),
                   CustomTextFormField(
                     obscureText: false,
-                    controller: _email,
+                    controller: _codigo,
                     validation: ValidationBuilder().email().required().build(),
                     labelText: "Código de barras",
                     prefixIcon: Icon(Icons.qr_code_outlined),
@@ -106,31 +111,27 @@ class _ProductsScreenState extends State<ProductsScreen> {
               CustomContainer(
                 widgets: [
                   SizedBox(height: 10),
-                  //Row(children: [Text("Datos generales")]),
                   CustomTextFormField(
                     obscureText: false,
-                    controller: _email,
+                    controller: _nombre,
                     validation: ValidationBuilder().email().required().build(),
                     labelText: "Nombre del Producto",
                     prefixIcon: Icon(Icons.edit_outlined),
                   ),
-                  // CustomTextFormField(
-                  //   obscureText: false,
-                  //   controller: _email,
-                  //   validation: ValidationBuilder().email().required().build(),
-                  //   labelText: "Categoría",
-                  //   prefixIcon: Icon(Icons.category_outlined),
-                  // ),
-                  CustomDropdown(),
+                  CustomDropdown(
+                    labelText: 'Categoría',
+                    prefixIcon: Icon(Icons.category_outlined),
+                    //suffixIcon: const Icon(Icons.arrow_downward),
+                  ),
                   Row(
                     children: [
                       Expanded(
                         child: CustomTextFormField(
                           obscureText: false,
-                          controller: _email,
+                          controller: _stock,
                           validation:
                               ValidationBuilder().email().required().build(),
-                          labelText: "Stock Máximo",
+                          labelText: "Stock Mínimo",
                           prefixIcon: Icon(Icons.warehouse),
                           maxLength: 6,
                         ),
@@ -138,11 +139,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       Expanded(
                         child: CustomTextFormField(
                           obscureText: false,
-                          controller: _email,
+                          controller: _precio,
                           validation:
                               ValidationBuilder().email().required().build(),
-                          labelText: "Stock Mínimo",
-                          prefixIcon: Icon(Icons.warehouse_outlined),
+                          labelText: "Precio",
+                          prefixIcon: Icon(Icons.attach_money_outlined),
                           maxLength: 6,
                         ),
                       ),
@@ -150,15 +151,22 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   ),
                   CustomTextFormField(
                     obscureText: false,
-                    controller: _email,
+                    controller: _descripcion,
                     validation: ValidationBuilder().email().required().build(),
                     labelText: "Descripción",
                     prefixIcon: Icon(Icons.qr_code_outlined),
                     maxLength: 45,
                     maxLines: 2,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                 ],
+              ),
+              SizedBox(height: 30),
+              CustomElevatedButton(
+                child: Text("REGISTRAR", style: TextStyle(color: Colors.white)),
+                onPressed: () {
+                  //TODO: // Implement login functionality
+                },
               ),
             ],
           ),

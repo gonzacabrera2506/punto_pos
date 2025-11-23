@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:go_router/go_router.dart';
+import 'package:stock_ventas/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:stock_ventas/features/register/presentation/screens/register_screen.dart';
 import 'package:stock_ventas/shared/widgets/custom_elevated_button.dart';
 import 'package:stock_ventas/shared/widgets/custom_outlined_button.dart';
@@ -48,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       .build(),
               labelText: "Password",
               prefixIcon: Icon(Icons.lock_outline_rounded),
+              maxLines: 1,
             ),
             SizedBox(height: 30),
             CustomElevatedButton(
@@ -57,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               onPressed: () {
                 //TODO: // Implement login functionality
+                context.pushNamed(DashboardScreen.routeName);
               },
             ),
             SizedBox(height: 30),

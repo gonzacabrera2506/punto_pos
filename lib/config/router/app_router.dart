@@ -17,8 +17,8 @@ final appRouter = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/welcome_screen',
-      // path: '/',
+      //path: '/welcome_screen',
+      path: '/',
       name: LoginScreen.routeName,
       builder: (context, state) => const LoginScreen(),
     ),
@@ -33,7 +33,7 @@ final appRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: '/',
+      path: '/dashboard_screen',
       name: DashboardScreen.routeName,
       builder: (context, state) => const DashboardScreen(),
     ),
